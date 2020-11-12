@@ -21,7 +21,7 @@
                     <!-- Barra in alto di sinistra -->
                     <div id="left-bar">
                         <div class="avatar-wrapper">
-                            <img src="./img/avatars/avatar_0.jpg" alt="">
+                            <img src="./img/avatars/my_avatar.jpg" alt="">
                         </div>
                         <div class="option-section">
                             <i class="fas fa-circle-notch"></i>
@@ -31,13 +31,18 @@
                     </div>
 
                     <!-- Barra di ricerca -->
-                    <div id="search-bar"></div>
+                    <div id="search-bar">
+                        <!-- <form>
+                            <button type="submit"><i class="fa fa-search"></i></button>
+                            <input type="text" placeholder="Search.." name="search">
+                        </form> -->
+                    </div>
 
                     <!-- Lista delle chat -->
                     <div id="chat-list">
-                        <div class="chat" v-for="(contact, index) in chats">
+                        <div class="chat" v-for="(contact, index) in chats" @click="select_chat(contact,index)">
                             <div class="avatar-wrapper">
-                                <img :src="'./img/avatars/avatar' + (contact.avatar) + '.jpg'" alt="">
+                                <img :src="'./img/avatars/avatar_' + index + '.jpg'" alt="">
                             </div>
                             <div class="info-chat">
                                 <p class="chat-title">{{contact.name}}</p>
@@ -52,10 +57,10 @@
 
                     <div id="right-bar">
                         <div class="avatar-wrapper">
-                            <img src="" alt="">
+                            <img :src="'./img/avatars/avatar_' + current + '.jpg'" alt="">
                         </div>
                         <div class="info-chat">
-                            <p class="chat-title">Nome Chat</p>
+                            <p class="chat-title">{{chats[current].name}}</p>
                             <p class="infos">Ultimo accesso</p>
                         </div>
 
@@ -63,6 +68,9 @@
                             <i class="fas fa-search"></i>
                             <i class="fas fa-ellipsis-v"></i>
                         </div>
+
+                    </div>
+                    <div class="messages-section">
 
                     </div>
                 </div>

@@ -1,11 +1,13 @@
 var app = new Vue({
     el: "#root",
 
+
     data:{
+        current:0,
         chats:[
             {
-                name: "Boolean #18",
-                avatar: '_1',
+                name: "Boolean#18",
+                // avatar: '_1',
                 messages:[
                     {
                         text: "Ciao",
@@ -45,6 +47,12 @@ var app = new Vue({
                 avatar: '_4'
             }
         ]
+    },
+
+    methods:{
+        select_chat(selected_contact, contact_index){
+            this.current = contact_index;
+        }
     }
 
 });
