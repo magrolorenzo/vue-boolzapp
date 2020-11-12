@@ -3,11 +3,15 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
+    color: #919191;
 }
 
 /* #009688 Verde sfondo */
 /* #06d755 verde Whatsapp */
 /* #dadbd4 bianco sfondo */
+/* #9d9d9d colore icone */
+/* #e7e7e7 bordo centrale */
+/* #ededed sfondo barre in alto */
 /* #f8f9fa bianco chat */
 
 main{
@@ -21,10 +25,33 @@ main{
     align-items: center;
 }
 
-#chat_window{
-    /* 1396 648 */
+#chat-window{
     width: 1396px;
     height: calc( 100vh - 40px );
     margin: 20px 0;
     background-color: #f8f9fa;
+    display: flex;
+    box-shadow: 0 1px 1px rgba(black, 0.06),0 2px 5px rgba(black, 0.2);
+}
+
+#left-section{
+    width: 30%;
+    height: 100%;
+    border-right: 1px solid #e7e7e7;
+}
+
+#right-section{
+    width: 70%;
+    height: 100%;
+}
+
+#profile-bar, #chat-bar{
+    height: 60px;
+    background-color: #ededed;
+}
+
+#search-bar{
+    height: 50px;
+    background-color: #f6f6f6;
+    border-bottom: 1px solid #dcdcdc;
 }
