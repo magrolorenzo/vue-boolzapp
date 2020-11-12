@@ -1,0 +1,30 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* #009688 Verde sfondo */
+/* #06d755 verde Whatsapp */
+/* #dadbd4 bianco sfondo */
+/* #f8f9fa bianco chat */
+
+main{
+    height: 100vh;
+    width: 100vw;
+    background-image: url("../img/background.png");
+    background-color: #dadbd4;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#chat_window{
+    /* 1396 648 */
+    width: 1396px;
+    height: calc( 100vh - 40px );
+    margin: 20px 0;
+    background-color: #f8f9fa;
+}
