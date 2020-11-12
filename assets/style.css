@@ -139,6 +139,8 @@ main{
     height: calc(100% - 120px);
     padding: 20px 90px;
     background-image: url("../img/chat-bg.png");
+    overflow-x: hidden;
+    /* overflow-y: scroll; */
 }
 
 .type-bar{

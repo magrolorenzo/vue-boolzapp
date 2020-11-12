@@ -40,13 +40,15 @@
 
                     <!-- Lista delle chat -->
                     <div id="chat-list">
-                        <div class="chat" v-for="(contact, index) in chats" @click="select_chat(contact,index)">
+                        <div class="chat" v-for="(contact, index) in chats" @click="select_chat(contact,index, messages)">
                             <div class="avatar-wrapper">
                                 <img :src="'./img/avatars/avatar_' + index + '.jpg'" alt="">
                             </div>
                             <div class="info-chat">
                                 <p class="chat-title">{{contact.name}}</p>
-                                <p class="infos">Ultimo messaggio</p>
+
+                                <!-- Come ricavare length - 1 ??? voglio vedere l'ultimo messaggio -->
+                                <p class="infos">{{contact.messages[0].text}}</p>
                             </div>
                         </div>
                     </div>
@@ -73,7 +75,9 @@
                     <!-- Sezione corpo messaggi -->
                     <div class="messages-section">
 
+                        <!-- Se è un messaggio inviato allinea a destra -->
                         <div class="text-row" v-for="(message) in chats[current].messages" :class="message.sent ? 'sent-row' : null">
+                            <!-- Se è un messaggio inviato colora di verde -->
                             <div class="text-bubble" :class="message.sent ? 'sent' : null">
                                 {{message.text}}
                             </div>

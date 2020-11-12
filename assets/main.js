@@ -12,8 +12,17 @@ var app = new Vue({
                     {text: "Posso Chiamarti?", sent: true},
                     {text: "No", sent: false},
                     {text: "Ora non posso parlare..", sent: false},
-                    {text: "Ok ci sentiamo domani!", sent: true}
+                    {text: "Ok ci sentiamo domani!", sent: true},
+                    {text: "Ok ci sentiamo domani!", sent: true},
+                    {text: "Ok ci sentiamo domani!", sent: true},
+                    {text: "Ok ci sentiamo domani!", sent: true},
+                    {text: "Ok ci sentiamo domani!", sent: true},
+                    {text: "Ok ci sentiamo domani!", sent: true},
+                    {text: "Ok ci sentiamo domani!", sent: true},
+                    {text: "Ok ci sentiamo domani!", sent: true},
+                    {text: "Ok ci sentiamo domani!", sent: true},
                 ]
+                // last_message: messages.length - 1
             },
 
             {
