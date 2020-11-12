@@ -46,7 +46,7 @@
                             </div>
                             <div class="info-chat">
                                 <p class="chat-title">{{contact.name}}</p>
-                                <p class="infos">Info</p>
+                                <p class="infos">Ultimo messaggio</p>
                             </div>
                         </div>
                     </div>
@@ -55,6 +55,7 @@
                 <!-- Sezione di destra -->
                 <div id="right-section">
 
+                    <!-- Barra in alto di destra -->
                     <div id="right-bar">
                         <div class="avatar-wrapper">
                             <img :src="'./img/avatars/avatar_' + current + '.jpg'" alt="">
@@ -63,16 +64,37 @@
                             <p class="chat-title">{{chats[current].name}}</p>
                             <p class="infos">Ultimo accesso</p>
                         </div>
-
                         <div class="option-section">
                             <i class="fas fa-search"></i>
                             <i class="fas fa-ellipsis-v"></i>
                         </div>
-
                     </div>
+
+                    <!-- Sezione corpo messaggi -->
                     <div class="messages-section">
 
+                        <div class="text-row" v-for="(message) in chats[current].messages" :class="message.sent ? 'sent-row' : null">
+                            <div class="text-bubble" :class="message.sent ? 'sent' : null">
+                                {{message.text}}
+                            </div>
+                        </div>
                     </div>
+
+                    <!-- Bara di messaggistica in basso a destra -->
+                    <div class="type-bar">
+                        <div class="emoji-attach">
+                            <i class="far fa-grin-alt "></i>
+                            <i class="fas fa-paperclip"></i>
+                        </div>
+                        <div class="type-section">
+                            <input type="text" name="" value="">
+                        </div>
+                        <div class="audio">
+                            <i class="fas fa-microphone"></i>
+                        </div>
+
+                    </div>
+
                 </div>
 
             </div>
