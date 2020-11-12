@@ -64,25 +64,22 @@ main{
     color: #919191;
 }
 
-/* .avatar-chat{
-    width: 20%;
-    display: flex;
-    border: 1px solid black;
-} */
 
 .avatar-wrapper{
     height: 40px;
     width: 40px;
+    /* border-radius: 50%; */
+}
+
+.avatar-wrapper img{
+    width: 100%;
     border-radius: 50%;
-    border: 1px solid black;
 }
 
 .infos{
     font-size: 13px;
     color: #919191;
 }
-
-
 
 
 /* Left Section */
@@ -96,6 +93,7 @@ main{
 .chat{
     height: 72px;
     display: flex;
+    cursor: pointer;
 }
 
 .chat .avatar-wrapper{

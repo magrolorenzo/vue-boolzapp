@@ -12,13 +12,16 @@
         <title>Boolzapp</title>
     </head>
     <body>
-        <main>
+        <main id="root">
             <div id="chat-window">
+
+                <!-- Sezione di sinistra -->
                 <div id="left-section">
 
+                    <!-- Barra in alto di sinistra -->
                     <div id="left-bar">
                         <div class="avatar-wrapper">
-                            <img src="" alt="">
+                            <img src="./img/avatars/avatar_0.jpg" alt="">
                         </div>
                         <div class="option-section">
                             <i class="fas fa-circle-notch"></i>
@@ -26,21 +29,25 @@
                             <i class="fas fa-ellipsis-v"></i>
                         </div>
                     </div>
+
+                    <!-- Barra di ricerca -->
                     <div id="search-bar"></div>
-                    <div id="contacts">
-                        <div class="chat">
+
+                    <!-- Lista delle chat -->
+                    <div id="chat-list">
+                        <div class="chat" v-for="(contact, index) in chats">
                             <div class="avatar-wrapper">
-                                <img src="" alt="">
+                                <img :src="'./img/avatars/avatar' + (contact.avatar) + '.jpg'" alt="">
                             </div>
                             <div class="info-chat">
-                                <p class="chat-title">Nome Chat</p>
-                                <p class="infos">Ultimo accesso</p>
+                                <p class="chat-title">{{contact.name}}</p>
+                                <p class="infos">Info</p>
                             </div>
-
                         </div>
                     </div>
                 </div>
 
+                <!-- Sezione di destra -->
                 <div id="right-section">
 
                     <div id="right-bar">
