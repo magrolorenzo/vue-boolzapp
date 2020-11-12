@@ -3,7 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
-    color: #919191;
+
 }
 
 /* #009688 Verde sfondo */
@@ -45,13 +45,90 @@ main{
     height: 100%;
 }
 
-#profile-bar, #chat-bar{
+#left-bar, #right-bar{
     height: 60px;
     background-color: #ededed;
+    display: flex;
+    padding: 10px 15px;
+    justify-content: space-between;
 }
+
+.option-section{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.option-section i{
+    margin-right: 25px;
+    color: #919191;
+}
+
+/* .avatar-chat{
+    width: 20%;
+    display: flex;
+    border: 1px solid black;
+} */
+
+.avatar-wrapper{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    border: 1px solid black;
+}
+
+.infos{
+    font-size: 13px;
+    color: #919191;
+}
+
+
+
+
+/* Left Section */
 
 #search-bar{
     height: 50px;
     background-color: #f6f6f6;
     border-bottom: 1px solid #dcdcdc;
+}
+
+.chat{
+    height: 72px;
+    display: flex;
+}
+
+.chat .avatar-wrapper{
+    height: 50px;
+    width: 50px;
+    margin: auto;
+}
+
+.chat .info-chat{
+    width: 80%;
+    padding: 10px;
+    border-bottom: 1px solid #dcdcdc;
+}
+
+
+/* Right Section */
+
+#right-bar{
+    padding: 10px 15px;
+    justify-content: space-between;
+}
+
+#right-bar .avatar-wrapper{
+    height: 40px;
+    width: 40px;
+}
+
+#right-bar .info-chat{
+    width: 780px;
+    border-bottom: 1px solid black;
+}
+
+#right-bar .option-section{
+    width: 90px;
+    border-bottom: 1px solid green  ;
 }
