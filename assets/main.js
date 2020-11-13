@@ -139,6 +139,10 @@ var app = new Vue({
             for (var i = 0; i < this.chats.length; i++) {
                     this.chats[i].visible = true;
             };
+        },
+
+        show_menu(){
+            
         }
 
     } // Chiusura Methods

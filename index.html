@@ -80,9 +80,17 @@
                         <div class="text-row" v-for="(message) in chats[current_chat].messages" :class="message.sent ? 'sent-row' : null">
                             <!-- Se è un messaggio inviato colora di verde -->
                             <div class="text-bubble" :class="message.sent ? 'sent' : 'received'">
-                                <p>
+                                <span>
                                     {{message.text}}
-                                </p>
+                                </span>
+                                <i class="fas fa-angle-down" :class="message.sent ? 'visible' : 'not-visible'" @click="show_menu">
+
+                                    <div class="bubble-menu" @click="show_menu">
+                                        <p>
+                                            Delete Message
+                                        </p>
+                                    </div>
+                                </i>
                             </div>
                         </div>
                     </div>

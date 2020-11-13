@@ -237,14 +237,17 @@ i{
     padding: 10px 15px;
     border-radius: 6px;
     font-size: 14px;
+    display: flex;
 }
 
-.text-bubble p{
-    /* vertical-align: bottom; */
-}
 
 .text-bubble.sent{
     background-color: #dcf8c6;
+}
+
+.text-bubble.sent .fa-angle-down{
+    position: relative;
+    margin-left: 10px;
 }
 
 .text-bubble.received{
@@ -261,4 +264,17 @@ i{
 
 .not-visible{
     display: none;
+}
+
+.bubble-menu{
+    position: absolute;
+    top: 20px;
+    right: 0;
+    font-size: 12px;
+    padding: 10px 5px;
+    width: 100px;
+    background-color: white;
+    box-shadow: 1px 1px 10px 1px rgba(0,0,0, .2);
+    border-radius: 3px;
+    font-weight: lighter;
 }
