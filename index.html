@@ -32,10 +32,10 @@
 
                     <!-- Barra di ricerca -->
                     <div id="search-bar">
-                        <!-- <form>
+                        <form>
                             <button type="submit"><i class="fa fa-search"></i></button>
-                            <input type="text" placeholder="Search.." name="search">
-                        </form> -->
+                            <input type="text" placeholder="Cerca o inizia una nuova chat" name="search" class="input-bar">
+                        </form>
                     </div>
 
                     <!-- Lista delle chat -->
@@ -78,8 +78,10 @@
                         <!-- Se è un messaggio inviato allinea a destra -->
                         <div class="text-row" v-for="(message) in chats[current].messages" :class="message.sent ? 'sent-row' : null">
                             <!-- Se è un messaggio inviato colora di verde -->
-                            <div class="text-bubble" :class="message.sent ? 'sent' : null">
-                                {{message.text}}
+                            <div class="text-bubble" :class="message.sent ? 'sent' : 'received'">
+                                <p>
+                                    {{message.text}}
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -91,7 +93,7 @@
                             <i class="fas fa-paperclip"></i>
                         </div>
                         <div class="type-section">
-                            <input type="text" name="" value="">
+                            <input type="text" placeholder="Scrivi un messaggio" name="search" class="input-bar">
                         </div>
                         <div class="audio">
                             <i class="fas fa-microphone"></i>

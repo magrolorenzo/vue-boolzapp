@@ -4,6 +4,7 @@ var app = new Vue({
 
     data:{
         current:0,
+
         chats:[
             {
                 name: "Boolean#18",
@@ -22,7 +23,7 @@ var app = new Vue({
                     {text: "Ok ci sentiamo domani!", sent: true},
                     {text: "Ok ci sentiamo domani!", sent: true},
                 ]
-                // last_message: messages.length - 1
+                //last_message: messages.length - 1
             },
 
             {
