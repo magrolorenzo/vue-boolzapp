@@ -12,10 +12,13 @@ var app = new Vue({
         // Var di supporto per misurare lunghezza array messaggi della chat
         last_message_pos:0,
 
+        // Variabile per ricerca chat
+        search_chat: "",
 
         chats:[
             {
                 name: "Boolean#18",
+                visible: true,
                 messages:[
                     {text: "Ciao", sent: true},
                     {text: "Posso Chiamarti?", sent: true},
@@ -28,6 +31,7 @@ var app = new Vue({
 
             {
                 name: "Omar Peretti",
+                visible: true,
                 messages:[
                     {text: "Ciao Lollo", sent: false},
                     {text: "Hey dimmi", sent: true},
@@ -39,6 +43,7 @@ var app = new Vue({
 
             {
                 name: "Riccardo Tamassia",
+                visible: true,
                 messages:[
                     {text: "Passo a prenderti io?", sent: false},
                     {text: "Si grazie mille", sent: true},
@@ -50,6 +55,7 @@ var app = new Vue({
 
             {
                 name: "Mattia Cesta",
+                visible: true,
                 messages:[
                     {text: "Porti fuori il cane dopo?", sent: false},
                     {text: "Si tra 20 minuti", sent: true},
@@ -109,8 +115,33 @@ var app = new Vue({
                 // Inserisco il nuovo oggetto messaggio nell'array
                 this.chats[involved_chat].messages.splice(last_message_pos, 0, new_message_obj);
             },1000);
+        },
+
+        // Funzione che viene richiamata per la ricerca
+        // Solo quando la stringa è lunga almeno 3 caratteri
+        searching(){
+
+            let lower_case_search = this.search_chat.toLowerCase();
+
+            for (var i = 0; i < this.chats.length; i++) {
+
+                let lower_case_name = this.chats[i].name.toLowerCase();
+                if(lower_case_name.includes(lower_case_search)){
+                    this.chats[i].visible = true;
+                } else{
+                    this.chats[i].visible = false;
+
+                };
+            };
+        },
+
+        not_searching(){
+            for (var i = 0; i < this.chats.length; i++) {
+                    this.chats[i].visible = true;
+            };
         }
 
-    }
+    } // Chiusura Methods
+
 
 });

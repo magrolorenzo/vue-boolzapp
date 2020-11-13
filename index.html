@@ -32,21 +32,22 @@
 
                     <!-- Barra di ricerca -->
                     <div id="search-bar">
-                        <form>
-                            <button type="submit"><i class="fa fa-search"></i></button>
-                            <input type="text" placeholder="Cerca o inizia una nuova chat" name="search" class="input-bar">
-                        </form>
+                        <div class="search-container">
+                            <button>
+                                <i class="fa fa-search"></i>
+                            </button>
+                            <input type="text" placeholder="Cerca o inizia una nuova chat" name="search" class="input-bar" v-model="search_chat" @keyup="search_chat.length >= 3 ? searching() : not_searching()">
+                        </div>
                     </div>
 
                     <!-- Lista delle chat -->
                     <div id="chat-list">
-                        <div class="chat" v-for="(contact, index) in chats" @click="select_chat(contact, index)">
+                        <div class="chat" v-for="(contact, index) in chats" @click="select_chat(contact, index)" :class="contact.visible ? 'visible' : 'not-visible'">
                             <div class="avatar-wrapper">
                                 <img :src="'./img/avatars/avatar_' + index + '.jpg'" alt="">
                             </div>
                             <div class="info-chat">
                                 <p class="chat-title">{{contact.name}}</p>
-
                                 <!-- Come ricavare length - 1 ??? voglio vedere l'ultimo messaggio -->
                                 <p class="infos">{{contact.messages[0].text}}</p>
                             </div>
