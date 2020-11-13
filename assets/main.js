@@ -3,7 +3,15 @@ var app = new Vue({
 
 
     data:{
-        current:0,
+
+        current_chat: 0,
+
+        new_text_message: "",
+
+        new_message: {
+            text: "",
+            sent: true
+        },
 
         chats:[
             {
@@ -13,15 +21,7 @@ var app = new Vue({
                     {text: "Posso Chiamarti?", sent: true},
                     {text: "No", sent: false},
                     {text: "Ora non posso parlare..", sent: false},
-                    {text: "Ok ci sentiamo domani!", sent: true},
-                    {text: "Ok ci sentiamo domani!", sent: true},
-                    {text: "Ok ci sentiamo domani!", sent: true},
-                    {text: "Ok ci sentiamo domani!", sent: true},
-                    {text: "Ok ci sentiamo domani!", sent: true},
-                    {text: "Ok ci sentiamo domani!", sent: true},
-                    {text: "Ok ci sentiamo domani!", sent: true},
-                    {text: "Ok ci sentiamo domani!", sent: true},
-                    {text: "Ok ci sentiamo domani!", sent: true},
+                    {text: "Ok ci sentiamo domani!", sent: true}
                 ]
                 //last_message: messages.length - 1
             },
@@ -60,8 +60,21 @@ var app = new Vue({
     },
 
     methods:{
+
         select_chat(selected_contact, contact_index){
-            this.current = contact_index;
+            app.current_chat = contact_index;
+        },
+
+        send_message(new_text, chat_index){
+
+            this.new_message.text = new_text;
+
+            console.log(this.new_message);
+            console.log(this.new_message.text);
+            console.log(chat_index);
+
+            this.chats[chat_index].messages.splice(-1, 0, this.new_message);
+            this.new_message.text = "";
         }
     }
 

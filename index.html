@@ -40,7 +40,7 @@
 
                     <!-- Lista delle chat -->
                     <div id="chat-list">
-                        <div class="chat" v-for="(contact, index) in chats" @click="select_chat(contact,index, messages)">
+                        <div class="chat" v-for="(contact, index) in chats" @click="select_chat(contact, index)">
                             <div class="avatar-wrapper">
                                 <img :src="'./img/avatars/avatar_' + index + '.jpg'" alt="">
                             </div>
@@ -60,10 +60,10 @@
                     <!-- Barra in alto di destra -->
                     <div id="right-bar">
                         <div class="avatar-wrapper">
-                            <img :src="'./img/avatars/avatar_' + current + '.jpg'" alt="">
+                            <img :src="'./img/avatars/avatar_' + current_chat + '.jpg'" alt="">
                         </div>
                         <div class="info-chat">
-                            <p class="chat-title">{{chats[current].name}}</p>
+                            <p class="chat-title">{{chats[current_chat].name}}</p>
                             <p class="infos">Ultimo accesso</p>
                         </div>
                         <div class="option-section">
@@ -76,7 +76,7 @@
                     <div class="messages-section">
 
                         <!-- Se è un messaggio inviato allinea a destra -->
-                        <div class="text-row" v-for="(message) in chats[current].messages" :class="message.sent ? 'sent-row' : null">
+                        <div class="text-row" v-for="(message) in chats[current_chat].messages" :class="message.sent ? 'sent-row' : null">
                             <!-- Se è un messaggio inviato colora di verde -->
                             <div class="text-bubble" :class="message.sent ? 'sent' : 'received'">
                                 <p>
@@ -93,7 +93,7 @@
                             <i class="fas fa-paperclip"></i>
                         </div>
                         <div class="type-section">
-                            <input type="text" placeholder="Scrivi un messaggio" name="search" class="input-bar">
+                            <input type="text" placeholder="Scrivi un messaggio"class="input-bar" v-model="new_text_message" @keyup.enter="send_message(new_text_message, current_chat)">
                         </div>
                         <div class="audio">
                             <i class="fas fa-microphone"></i>
