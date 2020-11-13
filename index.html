@@ -77,20 +77,24 @@
                     <div class="messages-section">
 
                         <!-- Se è un messaggio inviato allinea a destra -->
-                        <div class="text-row" v-for="(message) in chats[current_chat].messages" :class="message.sent ? 'sent-row' : null">
-                            <!-- Se è un messaggio inviato colora di verde -->
+                        <div class="text-row" v-for="(message, message_index) in chats[current_chat].messages" :class="message.sent ? 'sent-row' : null">
+
+                            <!-- Se è un messaggio inviato colora di verde e sposta a destra -->
                             <div class="text-bubble" :class="message.sent ? 'sent' : 'received'">
                                 <span>
                                     {{message.text}}
                                 </span>
-                                <i class="fas fa-angle-down" :class="message.sent ? 'visible' : 'not-visible'" @click="show_menu">
 
-                                    <div class="bubble-menu" @click="show_menu">
-                                        <p>
-                                            Delete Message
-                                        </p>
-                                    </div>
+                                <!-- Freccia per visualizzare il menu per cancellare il messaggio -->
+
+                                <i class="fas fa-angle-down" :class="message.sent ? 'visible' : 'not-visible'" @click="show_hide_menu(message_index)">
                                 </i>
+                                <div class="bubble-menu" :class="message.del ? 'visible' : 'not-visible'" @click="delete_this_message(message_index)">
+                                    <p>
+                                        Delete Message
+                                    </p>
+                                </div>
+
                             </div>
                         </div>
                     </div>

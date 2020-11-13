@@ -238,15 +238,17 @@ i{
     border-radius: 6px;
     font-size: 14px;
     display: flex;
+    box-shadow: 1px 1px 10px 1px rgba(0,0,0, .1);
 }
 
 
 .text-bubble.sent{
     background-color: #dcf8c6;
+    position: relative;
+
 }
 
 .text-bubble.sent .fa-angle-down{
-    position: relative;
     margin-left: 10px;
 }
 
@@ -268,13 +270,20 @@ i{
 
 .bubble-menu{
     position: absolute;
-    top: 20px;
+    top: 30px;
     right: 0;
-    font-size: 12px;
     padding: 10px 5px;
-    width: 100px;
     background-color: white;
     box-shadow: 1px 1px 10px 1px rgba(0,0,0, .2);
     border-radius: 3px;
-    font-weight: lighter;
+    cursor: pointer;
+}
+
+
+.bubble-menu.not-visible{
+    display: none;
+}
+
+.bubble-menu.visible{
+    display: flex;
 }

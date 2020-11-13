@@ -15,16 +15,19 @@ var app = new Vue({
         // Variabile per ricerca chat
         search_chat: "",
 
+        // Varaibile per visualizzare menu delete message
+        show_delete_menu: false,
+
         chats:[
             {
                 name: "Boolean#18",
                 visible: true,
                 messages:[
-                    {text: "Ciao", sent: true},
-                    {text: "Posso Chiamarti?", sent: true},
-                    {text: "No", sent: false},
-                    {text: "Ora non posso parlare..", sent: false},
-                    {text: "Ok ci sentiamo domani!", sent: true}
+                    {text: "Ciao", sent: true, del:false},
+                    {text: "Posso Chiamarti?", sent: true, del:false},
+                    {text: "No", sent: false, del:false},
+                    {text: "Ora non posso parlare..", sent: false, del:false},
+                    {text: "Ok ci sentiamo domani!", sent: true, del:false}
                 ]
                 //last_message: messages.length - 1
             },
@@ -141,8 +144,17 @@ var app = new Vue({
             };
         },
 
-        show_menu(){
-            
+        show_hide_menu(message_pos){
+            if(this.chats[this.current_chat].messages[message_pos].del == false){
+                this.chats[this.current_chat].messages[message_pos].del = true;
+            } else {
+                this.chats[this.current_chat].messages[message_pos].del = false;
+            }
+            console.log(this.chats[this.current_chat].messages[message_pos].del);
+        },
+
+        delete_this_message(message_pos){
+            this.chats[this.current_chat].messages.splice(message_pos, 1);
         }
 
     } // Chiusura Methods
