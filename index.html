@@ -81,14 +81,21 @@
 
                             <!-- Se è un messaggio inviato colora di verde e sposta a destra -->
                             <div class="text-bubble" :class="message.sent ? 'sent' : 'received'">
-                                <span>
-                                    {{message.text}}
-                                </span>
+
+                                <div>
+                                    <p>
+                                        {{message.text}}
+                                    </p>
+                                    <p class="date-info">
+                                        {{message.date}}
+                                    </p>
+                                </div>
 
                                 <!-- Freccia per visualizzare il menu per cancellare il messaggio -->
 
                                 <i class="fas fa-angle-down" :class="message.sent ? 'visible' : 'not-visible'" @click="show_hide_menu(message_index)">
                                 </i>
+
                                 <div class="bubble-menu" :class="message.del ? 'visible' : 'not-visible'" @click="delete_this_message(message_index)">
                                     <p>
                                         Delete Message
@@ -118,6 +125,10 @@
 
             </div>
         </main>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
+
+
         <script src="assets/main.js" charset="utf-8"></script>
     </body>
 </html>

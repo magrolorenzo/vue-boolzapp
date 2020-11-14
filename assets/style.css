@@ -3,7 +3,6 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
-
 }
 
 /* #009688 Verde sfondo */
@@ -187,8 +186,9 @@ i{
     padding: 20px 90px;
     background-image: url("../img/chat-bg.png");
     overflow-y: auto;
+
     /* .messages-section.scrollTop = objDiv.scrollHeight; */
-    /* overflow-y: scroll; */
+
 }
 
 .type-bar{
@@ -286,4 +286,8 @@ i{
 
 .bubble-menu.visible{
     display: flex;
+}
+
+.date-info{
+    font-size: 12px;
 }

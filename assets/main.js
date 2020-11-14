@@ -23,11 +23,11 @@ var app = new Vue({
                 name: "Boolean#18",
                 visible: true,
                 messages:[
-                    {text: "Ciao", sent: true, del:false},
-                    {text: "Posso Chiamarti?", sent: true, del:false},
-                    {text: "No", sent: false, del:false},
-                    {text: "Ora non posso parlare..", sent: false, del:false},
-                    {text: "Ok ci sentiamo domani!", sent: true, del:false}
+                    {text: "Ciao", sent: true, del:false, date: '10/01/2020 15:30:55', h:""},
+                    {text: "Posso Chiamarti?", sent: true, del:false, date: '10/01/2020 15:30:55'},
+                    {text: "No", sent: false, del:false, date: '10/01/2020 15:30:55'},
+                    {text: "Ora non posso parlare..", sent: false, del:false, date: '10/01/2020 15:30:55'},
+                    {text: "Ok ci sentiamo domani!", sent: true, del:false, date: '10/01/2020 15:30:55'}
                 ]
                 //last_message: messages.length - 1
             },
@@ -138,12 +138,14 @@ var app = new Vue({
             };
         },
 
+        // Funzione per ripristinare la colonna di sinistra con tutti i contatti
         not_searching(){
             for (var i = 0; i < this.chats.length; i++) {
                     this.chats[i].visible = true;
             };
         },
 
+        // Funzione per il mostra e noscondi del menu Delete
         show_hide_menu(message_pos){
             if(this.chats[this.current_chat].messages[message_pos].del == false){
                 this.chats[this.current_chat].messages[message_pos].del = true;
