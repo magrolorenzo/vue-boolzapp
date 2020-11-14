@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
         <link id="favicon" rel="shortcut icon" type="image/png" href="https://web.whatsapp.com/img/favicon_c5088e888c97ad440a61d247596f88e5.png">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
 		<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
         <link rel="stylesheet" href="assets/style.css">
         <title>Boolzapp</title>
@@ -49,7 +50,8 @@
                             <div class="info-chat">
                                 <p class="chat-title">{{contact.name}}</p>
                                 <!-- Come ricavare length - 1 ??? voglio vedere l'ultimo messaggio -->
-                                <p class="infos">{{contact.messages[0].text}}</p>
+                                <p class="infos">{{contact.messages[contact.messages.length - 1].text}}</p>
+                                <p class="infos">{{last_message_hour(contact.messages[contact.messages.length - 1].date)}}</p>
                             </div>
                         </div>
                     </div>
@@ -87,7 +89,7 @@
                                         {{message.text}}
                                     </p>
                                     <p class="date-info">
-                                        {{message.date}}
+                                        {{last_message_hour(message.date)}}
                                     </p>
                                 </div>
 
@@ -125,8 +127,7 @@
 
             </div>
         </main>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
+
 
 
         <script src="assets/main.js" charset="utf-8"></script>

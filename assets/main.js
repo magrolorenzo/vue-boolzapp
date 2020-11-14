@@ -23,11 +23,11 @@ var app = new Vue({
                 name: "Boolean#18",
                 visible: true,
                 messages:[
-                    {text: "Ciao", sent: true, del:false, date: '10/01/2020 15:30:55', h:""},
-                    {text: "Posso Chiamarti?", sent: true, del:false, date: '10/01/2020 15:30:55'},
-                    {text: "No", sent: false, del:false, date: '10/01/2020 15:30:55'},
-                    {text: "Ora non posso parlare..", sent: false, del:false, date: '10/01/2020 15:30:55'},
-                    {text: "Ok ci sentiamo domani!", sent: true, del:false, date: '10/01/2020 15:30:55'}
+                    {text: "Ciao", sent: true, del:false, date: '10/01/2020 15:30:55'},
+                    {text: "Posso Chiamarti?", sent: true, del:false, date: '10/01/2020 15:31:55'},
+                    {text: "No", sent: false, del:false, date: '10/01/2020 15:35:55'},
+                    {text: "Ora non posso parlare..", sent: false, del:false, date: '10/01/2020 15:40:55'},
+                    {text: "Ok ci sentiamo domani!", sent: true, del:false, date: '10/01/2020 15:41:55'}
                 ]
                 //last_message: messages.length - 1
             },
@@ -36,11 +36,11 @@ var app = new Vue({
                 name: "Omar Peretti",
                 visible: true,
                 messages:[
-                    {text: "Ciao Lollo", sent: false},
-                    {text: "Hey dimmi", sent: true},
-                    {text: "Domani sera ci sei?", sent: false},
-                    {text: "No mi spiace", sent: true},
-                    {text: "Peccato", sent: false}
+                    {text: "Ciao Lollo", sent: false, del:false, date: '10/01/2020 16:00:55'},
+                    {text: "Hey dimmi", sent: true, del:false, date: '10/01/2020 16:05:55'},
+                    {text: "Domani sera ci sei?", sent: false, del:false, date: '10/01/2020 16:10:55'},
+                    {text: "No mi spiace", sent: true, del:false, date: '10/01/2020 16:11:55'},
+                    {text: "Peccato", sent: false, del:false, date: '10/01/2020 16:20:55'}
                 ]
             },
 
@@ -48,11 +48,11 @@ var app = new Vue({
                 name: "Riccardo Tamassia",
                 visible: true,
                 messages:[
-                    {text: "Passo a prenderti io?", sent: false},
-                    {text: "Si grazie mille", sent: true},
-                    {text: "Ok 10 minuti e sono li", sent: false},
-                    {text: "Ok io porto la birra", sent: true},
-                    {text: "Scendi!", sent: false}
+                    {text: "Passo a prenderti io?", sent: false, del:false, date: '10/01/2020 11:30:55'},
+                    {text: "Si grazie mille", sent: true, del:false, date: '10/01/2020 11:30:55'},
+                    {text: "Ok 10 minuti e sono li", sent: false, del:false, date: '10/01/2020 11:30:55'},
+                    {text: "Ok io porto la birra", sent: true, del:false, date: '10/01/2020 11:30:55'},
+                    {text: "Scendi!", sent: false, del:false, date: '10/01/2020 11:30:55'}
                 ]
             },
 
@@ -60,9 +60,9 @@ var app = new Vue({
                 name: "Mattia Cesta",
                 visible: true,
                 messages:[
-                    {text: "Porti fuori il cane dopo?", sent: false},
-                    {text: "Si tra 20 minuti", sent: true},
-                    {text: "Ok porto pure il mio!", sent: false}
+                    {text: "Porti fuori il cane dopo?", sent: false, del:false, date: '10/01/2020 20:30:55'},
+                    {text: "Si tra 20 minuti", sent: true, del:false, date: '10/01/2020 20:30:55'},
+                    {text: "Ok porto pure il mio!", sent: false, del:false, date: '10/01/2020 20:30:55'}
                 ]
             }
         ]
@@ -79,7 +79,9 @@ var app = new Vue({
             // Oggetto messaggio di supporto da pushare nel array corrispondente
             let new_message_obj = {
                 text: "",
-                sent: true
+                sent: true,
+                del: false,
+                date: new Date()
             };
 
             // assegno all oggetto di supporto la nuva stringa
@@ -110,7 +112,9 @@ var app = new Vue({
                 // Oggetto messaggio di risposta automatica
                 let new_message_obj = {
                     text: "Ok!",
-                    sent: false
+                    sent: false,
+                    del: false,
+                    date: new Date()
                 };
 
 
@@ -157,6 +161,13 @@ var app = new Vue({
 
         delete_this_message(message_pos){
             this.chats[this.current_chat].messages.splice(message_pos, 1);
+        },
+
+        last_message_hour(m_date){
+            // let hh = m_date.getHours;
+            // let mm = m_date.getMinutes;
+            // let t = hh + ":" + mm;
+            return moment(m_date).format("HH:mm");
         }
 
     } // Chiusura Methods
