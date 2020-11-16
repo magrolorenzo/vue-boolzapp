@@ -43,7 +43,7 @@
 
                     <!-- Lista delle chat -->
                     <div id="chat-list">
-                        <div class="chat" v-for="(contact, index) in chats" @click="select_chat(contact, index)" :class="contact.visible ? 'visible' : 'not-visible'">
+                        <div class="chat" v-for="(contact, index) in chats" @click="select_chat( index)" :class="index == this.current_chat ? 'grey' : 'white'" :class="contact.visible ? 'visible' : 'not-visible'" >
                             <div class="avatar-wrapper">
                                 <img :src="'./img/avatars/avatar_' + index + '.jpg'" alt="">
                             </div>

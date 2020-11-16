@@ -70,7 +70,7 @@ var app = new Vue({
     methods:{
 
         // Imposta la variabile dell app current_chat uguale al indice della chat selezionata
-        select_chat(selected_contact, contact_index){
+        select_chat( contact_index){
             this.current_chat = contact_index;
         },
 
@@ -123,7 +123,7 @@ var app = new Vue({
                 // Inserisco il nuovo oggetto messaggio nell'array
                 this.chats[involved_chat].messages.splice(last_message_pos, 0, new_message_obj);
             },1000);
-            
+
         },
 
         // Funzione che viene richiamata per la ricerca
