@@ -1,7 +1,6 @@
 var app = new Vue({
     el: "#root",
 
-
     data:{
 
         // Indice di posizione della chat corrente
@@ -29,7 +28,7 @@ var app = new Vue({
                     {text: "Ora non posso parlare..", sent: false, del:false, date: '10/01/2020 15:40:55'},
                     {text: "Ok ci sentiamo domani!", sent: true, del:false, date: '10/01/2020 15:41:55'}
                 ]
-                //last_message: messages.length - 1
+
             },
 
             {
@@ -70,10 +69,12 @@ var app = new Vue({
 
     methods:{
 
+        // Imposta la variabile dell app current_chat uguale al indice della chat selezionata
         select_chat(selected_contact, contact_index){
             this.current_chat = contact_index;
         },
 
+        // Metedoso per l'invio del messaggio on keyup.enter sulla barra in basso a destra
         send_message(){
 
             // Oggetto messaggio di supporto da pushare nel array corrispondente
@@ -99,11 +100,12 @@ var app = new Vue({
 
             // Chiamo la funzione di risposta automatica
             this.answer_me();
+
         },
 
         // Metodo richiamato per la risposta automatica dopo i 3 secondi
         answer_me(){
-            // Salvo l'indeice della chat in cui ho scritto la risposta
+            // Salvo l'indice della chat in cui ho scritto la risposta
             // Se si scrive e poi si cambia chat la risposta verrà visualizzata sulla chat corretta
             let involved_chat = this.current_chat;
 
@@ -117,19 +119,22 @@ var app = new Vue({
                     date: new Date()
                 };
 
-
                 let last_message_pos = (this.chats[involved_chat].messages.length);
                 // Inserisco il nuovo oggetto messaggio nell'array
                 this.chats[involved_chat].messages.splice(last_message_pos, 0, new_message_obj);
             },1000);
+            
         },
 
         // Funzione che viene richiamata per la ricerca
         // Solo quando la stringa è lunga almeno 3 caratteri
         searching(){
 
+            // Normalizzo la stringa scritta dall'utente a tutta minuscola
             let lower_case_search = this.search_chat.toLowerCase();
 
+            // Ciclo il nome di ogni chat e verifico se lastringa scritta è presente nel nome
+            // Nel ciclo vengono normalizzati anche i nomi in minuscolo
             for (var i = 0; i < this.chats.length; i++) {
 
                 let lower_case_name = this.chats[i].name.toLowerCase();
@@ -137,7 +142,6 @@ var app = new Vue({
                     this.chats[i].visible = true;
                 } else{
                     this.chats[i].visible = false;
-
                 };
             };
         },
@@ -159,18 +163,24 @@ var app = new Vue({
             console.log(this.chats[this.current_chat].messages[message_pos].del);
         },
 
+        // Funzione per la cancellazione del messaggio dalla chat
         delete_this_message(message_pos){
             this.chats[this.current_chat].messages.splice(message_pos, 1);
         },
 
+        // Funzione per normalizzare la data solamente in Ore e Minuti
         last_message_hour(m_date){
+
             // let hh = m_date.getHours;
             // let mm = m_date.getMinutes;
             // let t = hh + ":" + mm;
             return moment(m_date).format("HH:mm");
+        },
+
+        show_last_message_row() {
+
         }
 
     } // Chiusura Methods
-
 
 });
