@@ -70,8 +70,10 @@ var app = new Vue({
     methods:{
 
         // Imposta la variabile dell app current_chat uguale al indice della chat selezionata
-        select_chat( contact_index){
+        select_chat(contact_index){
             this.current_chat = contact_index;
+            console.log(contact_index);
+            console.log(this.current_chat);
         },
 
         // Metedoso per l'invio del messaggio on keyup.enter sulla barra in basso a destra
