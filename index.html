@@ -43,7 +43,7 @@
 
                     <!-- Lista delle chat -->
                     <div id="chat-list">
-                        <div class="chat" v-for="(contact, index) in chats" @click="select_chat(index)" :class="current_chat == index ? 'grey' : 'white'" :class="contact.visible ? 'visible' : 'not-visible'" >
+                        <div class="chat" v-for="(contact, index) in chats" @click="select_chat(index)" :class="(current_chat == index ? 'grey' : 'white') + ' ' + (contact.visible ? 'visible' : 'not-visible')" >
                             <div class="avatar-wrapper">
                                 <img :src="'./img/avatars/avatar_' + index + '.jpg'" alt="">
                             </div>
@@ -95,7 +95,7 @@
 
                                 <!-- Freccia per visualizzare il menu per cancellare il messaggio -->
 
-                                <i class="fas fa-angle-down" :class="message.sent ? 'visible' : 'not-visible'" @click="show_hide_menu(message_index)">
+                                <i class="fas fa-angle-down visible"  @click="show_hide_menu(message_index)">
                                 </i>
 
                                 <div class="bubble-menu" :class="message.del ? 'visible' : 'not-visible'" @click="delete_this_message(message_index)">
