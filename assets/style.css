@@ -18,6 +18,7 @@
 main{
     height: 100vh;
     width: 100vw;
+    padding: 0 20px;
     background-image: url("../img/background.png");
     background-color: #dadbd4;
     background-size: cover;
@@ -31,9 +32,11 @@ i{
 }
 
 #chat-window{
-    width: 1396px;
+
+    width: 100%;
+    max-width: 1396px;
     height: calc( 100vh - 40px );
-    margin: 20px 0;
+    /* margin: 20px; */
     background-color: #f8f9fa;
     display: flex;
     box-shadow: 1px 1px 10px 1px rgba(0,0,0, .2);
@@ -143,6 +146,7 @@ i{
 
 /* ************ Chat */
 .chat{
+    padding: 10px;
     height: 72px;
     display: flex;
     cursor: pointer;
@@ -156,7 +160,7 @@ i{
 
 .chat .info-chat{
     width: 80%;
-    padding: 10px 10px 10px 0;
+    padding-left: 10px;
     border-bottom: 1px solid #dcdcdc;
 }
 
@@ -186,7 +190,7 @@ i{
 
 .messages-section{
     height: calc(100% - 120px);
-    padding: 20px 90px;
+    padding: 20px 70px;
     background-image: url("../img/chat-bg.png");
     overflow-y: auto;
 
@@ -198,6 +202,8 @@ i{
     height: 60px;
     padding: 10px;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
     background-color: #f0f0f0
 }
 
@@ -211,6 +217,8 @@ i{
 
 .type-section{
     width: 85%;
+    height: 100%;
+    padding: 0 20px;
     border-radius: 18px;
 }
 
@@ -219,8 +227,8 @@ i{
 }
 
 .emoji-attach i, .audio i{
-    font-size: 24px;
-    margin: auto 10px;
+    font-size: 20px;
+    padding: 0 10%;
     color: #919191;
 }
 
@@ -237,6 +245,7 @@ i{
 }
 
 .text-bubble{
+    position: relative;
     padding: 10px 15px;
     border-radius: 6px;
     font-size: 14px;
@@ -247,7 +256,7 @@ i{
 
 .text-bubble.sent{
     background-color: #dcf8c6;
-    position: relative;
+    /* position: relative; */
 
 }
 

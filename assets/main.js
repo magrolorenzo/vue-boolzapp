@@ -167,7 +167,14 @@ var app = new Vue({
 
         // Funzione per la cancellazione del messaggio dalla chat
         delete_this_message(message_pos){
-            this.chats[this.current_chat].messages.splice(message_pos, 1);
+            if (this.chats[this.current_chat].messages.length == 1 ) {
+
+                this.chats[this.current_chat].messages = [];
+            }else{
+
+                this.chats[this.current_chat].messages.splice(message_pos, 1);
+                console.log("messaggio eliminato");
+            }
         },
 
         // Funzione per normalizzare la data solamente in Ore e Minuti

@@ -49,9 +49,10 @@
                             </div>
                             <div class="info-chat">
                                 <p class="chat-title">{{contact.name}}</p>
-                                <!-- Come ricavare length - 1 ??? voglio vedere l'ultimo messaggio -->
-                                <p class="infos">{{contact.messages[contact.messages.length - 1].text}}</p>
-                                <p class="infos">{{last_message_hour(contact.messages[contact.messages.length - 1].date)}}</p>
+                                <div v-if="contact.messages.length">
+                                    <p class="infos">{{contact.messages[contact.messages.length - 1].text}}</p>
+                                    <p class="infos">{{last_message_hour(contact.messages[contact.messages.length - 1].date)}}</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -67,7 +68,7 @@
                         </div>
                         <div class="info-chat">
                             <p class="chat-title">{{chats[current_chat].name}}</p>
-                            <p class="infos">Ultimo Accesso: {{last_message_hour(chats[current_chat].messages[chats[current_chat].messages.length - 1].date)}}</p>
+                            <p class="infos" v-if="chats[current_chat].messages.length">Ultimo Accesso: {{last_message_hour(chats[current_chat].messages[chats[current_chat].messages.length - 1].date)}}</p>
                         </div>
                         <div class="option-section">
                             <i class="fas fa-search"></i>
